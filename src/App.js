@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Navb from "./Components/Navb";
+import Home from "./Pages/Home";
+import SignUp from "./Pages/SignUp";
+import SignIn from "./Pages/SignIn";
+import ClientProfile from "./Pages/Client/ClientProfile";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { current } from "./Redux/Actions/ClientActions";
+import ProductDetails from "./Components/ProductDetails";
 
 function App() {
+  const dispatch = useDispatch()
+  const token = localStorage.getItem("token")
+  useEffect(() => {
+    if (token) {
+      dispatch(current())
+    }
+
+  }, [token])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navb />
+      <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/home' element={<Home />} />
+      <Route path='/signIn' element={<SignIn />} />
+      <Route path='/signUp' element={<SignUp />} />
+      <Route path='/account' element={<ClientProfile />} />
+      <Route path='/productPage' element={<ProductDetails />} />
+      </Routes>
     </div>
   );
 }
