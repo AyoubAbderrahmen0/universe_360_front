@@ -1,30 +1,21 @@
-import React, { useState } from 'react'
+import React  from 'react'
 import { Button, Card, Badge, ListGroup, Row, Col, Carousel } from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
 import { productDetails } from '../Redux/Actions/ProductActions';
 import { useNavigate } from 'react-router-dom';
 
 const ProductsCard = (props) => {
-  const [show, setShow] = useState(false);
   const dispatch = useDispatch()
 
   const {
     name,
-    description,
     price,
     discountPrice,
     brand,
-    category,
     model,
-    stockQuantity,
-    dispo,
     images,
     ratings,
-    reviews,
-    dimensions,
-    weight,
-    sku,
-    video
+    reviews
   } = props.product;
 
   // Format discounted price

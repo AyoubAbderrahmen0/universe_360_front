@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, Card, Badge, ListGroup, Row, Col, Carousel } from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
 import { deleteProduct , productDetails} from '../Redux/Actions/ProductActions';
@@ -6,29 +6,19 @@ import { useNavigate } from 'react-router-dom';
 
 const ProductCard = (props) => {
   const dispatch = useDispatch()
-  const [show, setShow] = useState(false);
-
   const handleDelete = () => {
     dispatch(deleteProduct(props.product._id))
   }
 
   const {
     name,
-    description,
     price,
     discountPrice,
     brand,
-    category,
     model,
-    stockQuantity,
-    dispo,
     images,
     ratings,
-    reviews,
-    dimensions,
-    weight,
-    sku,
-    video
+    reviews
   } = props.product;
 
   // Format discounted price

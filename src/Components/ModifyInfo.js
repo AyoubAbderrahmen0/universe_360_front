@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, InputGroup, Modal } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import ChangeUserName from './ChangeUserName';
 import ChangePassword from './ChangePassword';
 
@@ -10,7 +10,7 @@ const ModifyInfo = () => {
 
   return (
     <div className='card p-2 ms-3 mt-1'>
-      {show=="0" && (
+      {show==="0" && (
       <div>
         <h2 className='text-center'>Modify your Information</h2>
 <div className='d-flex justify-content-center my-4'>
@@ -32,10 +32,10 @@ const ModifyInfo = () => {
       </div>
       )
       }
-      {show == "username" &&
+      {show === "username" &&
       (<ChangeUserName setShow={setShow}/>)
       }
-      {show == "password" &&
+      {show === "password" &&
       (<ChangePassword setShow={setShow}/>)
       }
     </div>
