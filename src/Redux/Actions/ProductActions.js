@@ -6,7 +6,7 @@ import { ADD_COMMENT, ADD_PRODUCT, DELETE_PRODUCT, DIS_PRODUCT_BUY, DISPLAY_PROD
 export const addProduct =(newProduct)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT})
     try{
-        const response = await axios.post("http://localhost:8000/api/product/addProduct",newProduct);
+        const response = await axios.post("https://universe-360-backend.onrender.com/api/product/addProduct",newProduct);
         dispatch({
             type:ADD_PRODUCT,
             payload:response.data
@@ -22,7 +22,7 @@ export const addProduct =(newProduct)=>async(dispatch)=>{
 export const getProducts=()=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.get("http://localhost:8000/api/product/getProducts");
+        const response = await axios.get("https://universe-360-backend.onrender.com/api/product/getProducts");
         dispatch({
             type:GET_PRODUCTS,
             payload:response.data
@@ -39,7 +39,7 @@ export const getProducts=()=>async(dispatch)=>{
 export const getProductById=(_id)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.post(`http://localhost:8000/api/product/getProductById/${_id}`);
+        const response = await axios.post(`https://universe-360-backend.onrender.com/api/product/getProductById/${_id}`);
         dispatch({
             type:GET_PRODUCT_BY_ID,
             payload:response.data
@@ -55,7 +55,7 @@ export const getProductById=(_id)=>async(dispatch)=>{
 export const getProductsByClientId=(clientID)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.post("http://localhost:8000/api/product/getProductsByClientId", {clientID});
+        const response = await axios.post("https://universe-360-backend.onrender.com/api/product/getProductsByClientId", {clientID});
         dispatch({
             type:GET_PRODUCTS_BY_CLIENT_ID,
             payload:response.data
@@ -72,7 +72,7 @@ export const getProductsByClientId=(clientID)=>async(dispatch)=>{
 export const deleteProduct=(id)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.delete(`http://localhost:8000/api/product/deleteProduct/${id}`);
+        const response = await axios.delete(`https://universe-360-backend.onrender.com/api/product/deleteProduct/${id}`);
         dispatch({
             type:DELETE_PRODUCT,
             payload:response.data
@@ -89,7 +89,7 @@ export const deleteProduct=(id)=>async(dispatch)=>{
 export const updateProductPrice=(id,price)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.put(`http://localhost:8000/api/product/updatePrice/${id}`,price);
+        const response = await axios.put(`https://universe-360-backend.onrender.com/api/product/updatePrice/${id}`,price);
         dispatch({
             type:UPDATE_PRODUCT_PRICE,
             payload:response.data
@@ -106,7 +106,7 @@ export const updateProductPrice=(id,price)=>async(dispatch)=>{
 export const updateDiscountPrice=(id,discountPrice)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.put(`http://localhost:8000/api/product/updateDiscountPrice/${id}`,discountPrice);
+        const response = await axios.put(`https://universe-360-backend.onrender.com/api/product/updateDiscountPrice/${id}`,discountPrice);
         dispatch({
             type:UPDATE_PRODUCT_DISCOUNT_PRICE,
             payload:response.data
@@ -123,7 +123,7 @@ export const updateDiscountPrice=(id,discountPrice)=>async(dispatch)=>{
 export const updateStockQuantity=(id,stockQuantity)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.put(`http://localhost:8000/api/product/updateStockQuantity/${id}`,stockQuantity);
+        const response = await axios.put(`https://universe-360-backend.onrender.com/api/product/updateStockQuantity/${id}`,stockQuantity);
         dispatch({
             type:UPDATE_STOCK_QUANTITY,
             payload:response.data
@@ -140,7 +140,7 @@ export const updateStockQuantity=(id,stockQuantity)=>async(dispatch)=>{
 export const updateRatings=(id,ratings)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.put(`http://localhost:8000/api/product/updateRatings/${id}`,ratings);
+        const response = await axios.put(`https://universe-360-backend.onrender.com/api/product/updateRatings/${id}`,ratings);
         dispatch({
             type:UPDATE_RATINGS,
             payload:response.data
@@ -157,7 +157,7 @@ export const updateRatings=(id,ratings)=>async(dispatch)=>{
 export const updateReviews=(id,reviews)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.put(`http://localhost:8000/api/product/updateReviews/${id}`,reviews);
+        const response = await axios.put(`https://universe-360-backend.onrender.com/api/product/updateReviews/${id}`,reviews);
         dispatch({
             type:UPDATE_REVIEWS,
             payload:response.data
@@ -174,7 +174,7 @@ export const updateReviews=(id,reviews)=>async(dispatch)=>{
 export const addComment=(id,comment)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.post(`http://localhost:8000/api/product/addComment/${id}`,comment);
+        const response = await axios.post(`https://universe-360-backend.onrender.com/api/product/addComment/${id}`,comment);
         dispatch({
             type:ADD_COMMENT,
             payload:response.data

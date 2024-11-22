@@ -5,7 +5,7 @@ import { CURRENT_CLIENT, DELETE_CLIENT, ERROR_CLIENT, LOAD_CLIENT, RESET_PASSWOR
 export const signUp=(newClient)=>async(dispatch)=>{
     dispatch({type:LOAD_CLIENT})
     try {
-        const response=await axios.post('http://localhost:8000/api/client/signUp',newClient)
+        const response=await axios.post('https://universe-360-backend.onrender.com/api/client/signUp',newClient)
         dispatch({
             type:SIGNUP_CLIENT,
             payload:response.data
@@ -21,7 +21,7 @@ export const signUp=(newClient)=>async(dispatch)=>{
 export const signIn=(email,password)=>async(dispatch)=>{
     dispatch({type:LOAD_CLIENT})
     try {
-        const response= await axios.post('http://localhost:8000/api/client/signIn',{email,password})
+        const response= await axios.post('https://universe-360-backend.onrender.com/api/client/signIn',{email,password})
         dispatch({
             type:SIGNIN_CLIENT,
             payload:response.data
@@ -51,7 +51,7 @@ export const signOut=()=>async(dispatch)=>{
 export const deleteClient=(_id)=>async(dispatch)=>{
     dispatch({type:LOAD_CLIENT})
     try {
-        const response= await axios.delete(`http://localhost:8000/api/client/delete/${_id}`)
+        const response= await axios.delete(`https://universe-360-backend.onrender.com/api/client/delete/${_id}`)
         dispatch({
             type:DELETE_CLIENT,
             payload:response.data
@@ -67,7 +67,7 @@ export const deleteClient=(_id)=>async(dispatch)=>{
 export const resetPassword=(_id,newPassword)=>async(dispatch)=>{
     dispatch({type:LOAD_CLIENT})
     try {
-        const response=await axios.put(`http://localhost:8000/api/client/reset-password/${_id}`,{newPassword})
+        const response=await axios.put(`https://universe-360-backend.onrender.com/api/client/reset-password/${_id}`,{newPassword})
         dispatch({
             type:RESET_PASSWORD,
             payload:response.data
@@ -83,7 +83,7 @@ export const resetPassword=(_id,newPassword)=>async(dispatch)=>{
 export const resetUserName=(_id,userName)=>async(dispatch)=>{
     dispatch({type:LOAD_CLIENT})
     try {
-        const response=await axios.put(`http://localhost:8000/api/client/reset-userName/${_id}`,{userName})
+        const response=await axios.put(`https://universe-360-backend.onrender.com/api/client/reset-userName/${_id}`,{userName})
         dispatch({
             type:RESET_USERNAME,
             payload:response.data
@@ -102,7 +102,7 @@ export const current=()=>async(dispatch)=>{
         const config = {
             headers: {authorization: localStorage.getItem('token')}
         }
-        const response=await axios.post("http://localhost:8000/api/client/current",config)
+        const response=await axios.post("https://universe-360-backend.onrender.com/api/client/current",config)
         dispatch({
             type:CURRENT_CLIENT,
             payload:response.data
