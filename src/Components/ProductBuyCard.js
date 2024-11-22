@@ -7,21 +7,11 @@ function ProductBuyCard(props) {
     const dispatch = useDispatch()
     const {
       name,
-      description,
       price,
       discountPrice,
       brand,
-      category,
       model,
-      stockQuantity,
-      dispo,
-      images,
-      ratings,
-      reviews,
-      dimensions,
-      weight,
-      sku,
-      video
+      images
     } = props?.product.product;
   
     const finalPrice = discountPrice ? discountPrice : price;
